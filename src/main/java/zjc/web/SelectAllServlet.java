@@ -31,17 +31,7 @@ public class SelectAllServlet extends HttpServlet {
         resp.getWriter().write(js);
 
 
-/*aaa*/
 
-  /*      bbb*/
-
-   /*     ddd*/
-
-    /*    ccc*/
-        
-         /*   github 更新*/
-
-    /*    本地库更新*/
 
     }
 
