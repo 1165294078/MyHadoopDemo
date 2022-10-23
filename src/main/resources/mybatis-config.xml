@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="org.apache.phoenix.jdbc.PhoenixDriver"/>
+                <property name="url" value="jdbc:phoenix:hadoop01:2181"/>
+            </dataSource>
+        </environment>
+
+
+
+
+    </environments>
+
+
+    <mappers>
+        <!--加载映射文件-->
+        <mapper resource="zjc/Mapper/DataMapper.xml"/>
+
+
+
+    </mappers>
+
+
+</configuration>
+
+
+

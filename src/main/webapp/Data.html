@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+
+<table id="SelectALL" border="1" cellspacing="0" width="100%">
+
+
+    <tr>
+        <th>id</th>
+        <th>content</th>
+        <th>crawlTime</th>
+        <th>createTime</th>
+        <th>score</th>
+        <th>menberLeve</th>
+        <th>color</th>
+        <th>productSiz</th>
+        <th>saleValue</th>
+
+    </tr>
+    <tr v-for="(data,i) in datas" align="center">
+        <td>{{i+1}}</td>
+        <td>{{data.id}}</td>
+        <td>{{data.content}}</td>
+        <td>{{data.crawlTime}}</td>
+        <td>{{data.createTime}}</td>
+        <td>{{data.score}}</td>
+        <td>{{data.menberLeve}}</td>
+        <td>{{data.color}}</td>
+        <td>{{data.productSiz}}</td>
+        <td>{{data.saleValue}}</td>
+
+        <td><a href="#">修改</a> <a href="#">删除</a></td>
+    </tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<!--vue  3.0 版本  2.0 在js里-->
+
+
+
+
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                datas:[]
+
+            }
+        },
+
+
+        mounted(){
+
+            var _this=this;
+
+            alert("加载完成")
+
+
+            axios({
+                method:"get",
+                url:"http://localhost:8080/MyHadoopDemo/selectAll"
+
+            }).then(function (response) {
+
+                _this.datas=response.data;
+
+                //传给 data里的数组
+            })
+
+
+        }
+    }).mount('#app')
+
+</script>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+
+
+
+<div id="app">
+
+    <template>
+        <el-table
+                :data="tableData"
+                style="width: 100%">
+            <el-table-column
+                    prop="id"
+                    label="id"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="content"
+                    label="content"
+                    width="280">
+            </el-table-column>
+            <el-table-column
+                prop="crawlTime"
+                label="crawlTime"
+                width="180">
+        </el-table-column>
+            <el-table-column
+                    prop="createTime"
+                    label="createTime"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="score"
+                    label="score"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="menberLeve"
+                    label="menberLeve"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="color"
+                    label="color"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="productSiz"
+                    label="productSiz"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="saleValue"
+                    label="saleValue"
+                    width="180">
+            </el-table-column>
+        </el-table>
+    </template>
+</div>
+
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/vue.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+
+<script>
+    new Vue({
+        el: '#app',
+
+        mounted(){
+            var _this=this;
+            axios({
+                method:"get",
+                url:"http://localhost:8080/MyHadoopDemo/selectAll"
+
+            }).then(function (response) {
+
+                _this.tableData=response.data;
+
+                //传给 data里的数组
+            })
+        },
+
+
+        data() {
+            const item = {
+
+            };
+            return {
+                tableData: Array(20).fill(item)
+            }
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
