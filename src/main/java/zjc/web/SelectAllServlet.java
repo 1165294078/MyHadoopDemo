@@ -41,6 +41,8 @@ public class SelectAllServlet extends HttpServlet {
         
          /*   github 更新*/
 
+    /*    本地库更新*/
+
     }
 
     @Override
